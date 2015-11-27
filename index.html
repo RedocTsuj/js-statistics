@@ -2,8 +2,31 @@
 <html>
 <head>
 	<title>Git Lesson - Home Page</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.theomessin.com/libs/semanticui/semantic.css">
+	<script src="https://cdn.theomessin.com/libs/semanticui/semantic.js"></script>
+	<script src="scripts.js"></script>
+	<style>
+		#container{
+			width: 500px;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	</style>
 </head>
 <body>
-	<h1>Welcome to the git-lesson main page.</h1>
+	<div id="container">
+		<h1 style="text-align:center;">Welcome to the git-lesson main page.</h1>
+		<h3 class="ui top attached header">
+			DasCalculator
+		</h3>
+		<div class="ui attached segment">
+			<p>Comma Seperated list of integers:</p>
+			<div class="ui input">
+				<input type="text" placeholder="Search...">
+			</div>
+		</div>
+	</div>
 </body>
 </html>

@@ -1,6 +1,6 @@
-window.calculator = window.calculator || {};
+window.statistics = window.statistics || {};
 
-window.calculator.global = {
+window.statistics = {
 	init: function(){
 		console.log("Calculator Initialized...");
 	},
@@ -14,5 +14,10 @@ window.calculator.global = {
 };
 
 $( window ).load(function() {
-  calculate.global.init();
+	statistics.init();
+});
+
+$( "#add-items" ).click(function() {
+	var items = $("my-items").val().split(",");
+	alert(statistics.add(items));
 });

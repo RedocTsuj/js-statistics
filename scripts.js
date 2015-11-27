@@ -17,7 +17,13 @@ $( window ).load(function() {
 	statistics.init();
 });
 
-$( "#add-items" ).click(function() {
-	var items = $("my-items").val().split(",");
-	alert(statistics.add(items));
-});
+function ArrayToInteger(array){
+	var intArray = new Array();
+	array.forEach(function(item){ intArray.push(parseInt(item)); });
+	return intArray;
+}
+
+function doAdd(){
+	var items = $("#my-items").val().split(",");
+	alert(statistics.add(ArrayToInteger(items)));
+}

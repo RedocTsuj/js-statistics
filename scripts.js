@@ -129,24 +129,24 @@ stats_class.prototype.max=function(){
 
 function doAdd(listAsString){
 	var stats=new stats_class( listAsString.split(","));
-	alert(stats.sum());
+	return stats.sum();
 }
 
 function doAvg(listAsString){
 	var stats=new stats_class( listAsString.split(","));
-	alert(stats.average());
+	return stats.average();
 }
 
 function doStDev(listAsString){
 	var stats=new stats_class( listAsString.split(","));
-	alert(stats.stdev());
+	return stats.stdev();
 }
 function doMin(listAsString){
 	var stats=new stats_class( listAsString.split(","));
-	alert(stats.min());
+	return stats.min();
 }
 
 function doMax(listAsString){
 	var stats=new stats_class( listAsString.split(","));
-	alert(stats.max());
+	return stats.max();
 }

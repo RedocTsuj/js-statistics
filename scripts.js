@@ -1,6 +1,13 @@
 var stats_class=function(array){
 	var intArray = new Array();
 	array.forEach(
+		function(item){ 
+			if (item && item!="" && ! isNaN(item)) { 
+				intArray.push(parseInt(item));
+			} else {
+				console.log("[" + item + "] is not a proper number");
+			}
+		});
 	this.values=intArray
 }
 

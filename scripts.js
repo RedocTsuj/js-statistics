@@ -1,29 +1,18 @@
-window.statistics = window.statistics || {};
-
-window.statistics = {
-	init: function(){
-		console.log("Calculator Initialized...");
-	},
-	add: function(operands){
-		var sum = 0;
-  		operands.forEach(function(operand) {
-    			sum += operand;
-  		});
-		return sum;
-  	}
-};
-
-$( window ).load(function() {
-	statistics.init();
-});
-
-function ArrayToInteger(array){
+var stats_class=function(array){
 	var intArray = new Array();
 	array.forEach(function(item){ intArray.push(parseInt(item)); });
-	return intArray;
+	this.values=intArray
+}
+
+stats_class.prototype.sum=function(){
+		var total = 0;
+  		this.values.forEach(function(operand) {
+    			total += operand;
+  		});
+		return total;
 }
 
 function doAdd(){
-	var items = $("#my-items").val().split(",");
-	alert(statistics.add(ArrayToInteger(items)));
+	var stats=new stats_class( $("#my-items").val().split(","));
+	alert(stats.sum());
 }

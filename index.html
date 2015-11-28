@@ -9,10 +9,13 @@
 	<style>
 		#container{
 			padding-top:15px;
-			width: 500px;
+			width: 600px;
 			display: block;
 			margin-left: auto;
 			margin-right: auto;
+		}
+		.halfsize{
+			width:50;
 		}
 	</style>
 </head>
@@ -27,15 +30,29 @@
 			<div class="ui fluid input">
 				<input type="text" placeholder="Comma-seperated items" id="my-items">
 			</div>
+			
 
 		</div>
 		<div class="ui bottom attached segment">
-			<button onclick='doAdd($("#my-items").val());' class="ui primary button">Add</button>
-			<button onclick='doAvg($("#my-items").val());' class="ui primary button">Avg</button>
-			<button onclick='doStDev($("#my-items").val());' class="ui primary button">StDev</button>
-			<button onclick='doMin($("#my-items").val());' class="ui primary button">Min</button>
-			<button onclick='doMax($("#my-items").val());' class="ui primary button">Max</button>
+			<button onclick='showResult(doAdd($("#my-items").val()));' class="ui primary button">Add</button>
+			<button onclick='showResult(doAvg($("#my-items").val()));' class="ui primary button">Avg</button>
+			<button onclick='showResult(doVariance($("#my-items").val()));' class="ui primary button">Variance</button>
+			<button onclick='showResult(doStDev($("#my-items").val()));' class="ui primary button">StDev</button>
+			<button onclick='showResult(doMin($("#my-items").val()));' class="ui primary button">Min</button>
+			<button onclick='showResult(doMax($("#my-items").val()));' class="ui primary button">Max</button>
+			
 		</div>
+			<div class="ui attached segment">
+			<div class="ui fluid input">
+				<input type="text" id="my-result">
+			</div>
+		</div>
+	<script>
+		function showResult(v){
+			$("#my-result").val(v)
+			//alert(v);
+		}
+	</script>
 	</div>
 </body>
 </html>

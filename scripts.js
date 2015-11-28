@@ -1,6 +1,6 @@
 var stats_class=function(array){
 	var intArray = new Array();
-	array.forEach(function(item){ intArray.push(parseInt(item)); });
+	array.forEach(
 	this.values=intArray
 }
 

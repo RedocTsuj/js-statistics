@@ -25,7 +25,32 @@ stats_class.prototype.average=function(){
 		if (count>0) 
 			return this.sum()/count
 		else
-  			return "Can not calc avg";
+  			return undefined;
+}
+
+stats_class.prototype.variance=function(){
+		var totdiff=0
+		var mean=this.average();
+		var count = this.values.length
+		if (typeof mean != "undefined") {
+			this.values.forEach(function(element) {
+				var diff=element-mean
+				totdiff += (diff*diff)
+			},this);
+			return totdiff/count;
+		}
+		else
+  			return undefined;
+}
+
+
+stats_class.prototype.stdev=function(){
+		var vrnc=this.variance()
+		if (typeof vrnc != "undefined") {
+			return Math.sqrt(vrnc)
+		}
+		else
+  			return undefined;
 }
 
 function doAdd(listAsString){
@@ -36,4 +61,9 @@ function doAdd(listAsString){
 function doAvg(listAsString){
 	var stats=new stats_class( listAsString.split(","));
 	alert(stats.average());
+}
+
+function doStDev(listAsString){
+	var stats=new stats_class( listAsString.split(","));
+	alert(stats.stdev());
 }

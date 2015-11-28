@@ -9,7 +9,7 @@
 	<style>
 		#container{
 			padding-top:15px;
-			width: 500px;
+			width: 600px;
 			display: block;
 			margin-left: auto;
 			margin-right: auto;
@@ -36,6 +36,7 @@
 		<div class="ui bottom attached segment">
 			<button onclick='showResult(doAdd($("#my-items").val()));' class="ui primary button">Add</button>
 			<button onclick='showResult(doAvg($("#my-items").val()));' class="ui primary button">Avg</button>
+			<button onclick='showResult(doVariance($("#my-items").val()));' class="ui primary button">Variance</button>
 			<button onclick='showResult(doStDev($("#my-items").val()));' class="ui primary button">StDev</button>
 			<button onclick='showResult(doMin($("#my-items").val()));' class="ui primary button">Min</button>
 			<button onclick='showResult(doMax($("#my-items").val()));' class="ui primary button">Max</button>

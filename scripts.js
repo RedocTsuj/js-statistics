@@ -137,10 +137,16 @@ function doAvg(listAsString){
 	return stats.average();
 }
 
+function doVariance(listAsString){
+	var stats=new stats_class( listAsString.split(","));
+	return stats.variance();
+}
+
 function doStDev(listAsString){
 	var stats=new stats_class( listAsString.split(","));
 	return stats.stdev();
 }
+
 function doMin(listAsString){
 	var stats=new stats_class( listAsString.split(","));
 	return stats.min();

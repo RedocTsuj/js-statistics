@@ -53,13 +53,8 @@ var stats_class=function(array){
 	this.values = new Array();
 	array.forEach(
 		function(item){ 
-<<<<<<< HEAD
-			if (item && item!="" && ! isNaN(item)) { 
-				this.values.push(parseInt(item));
-=======
 			if (notEmpty(item) && ! isNaN(item)) { 
-				intArray.push(parseInt(item));
->>>>>>> addMin
+				this.values.push(parseInt(item));
 			} else {
 				console.log("[" + item + "] is not a proper number");
 			}
@@ -129,13 +124,11 @@ function doAvg(listAsString){
 	alert(stats.average());
 }
 
-<<<<<<< HEAD
 function doStDev(listAsString){
 	var stats=new stats_class( listAsString.split(","));
 	alert(stats.stdev());
-=======
+}
 function doMin(listAsString){
 	var stats=new stats_class( listAsString.split(","));
 	alert(stats.min());
->>>>>>> addMin
 }

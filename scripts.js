@@ -1,9 +1,65 @@
+"use strict";
+
+
+function isBlank(o){return isEmpty(o);}
+function notBlank(o){return ! isBlank(o);}
+function notEmpty(o){return ! isEmpty(o);}
+
+function isObj(o){ 
+	var t=typeof(o);
+	var e=true;
+	var v=o;
+	t=t.toLowerCase();
+	if (t=="string") {
+		e=false
+	} else if ((t=="number") || (t=="function")) {
+		e=false; 
+	} else if (t=="object")  {
+		e=true; 
+	} else if ((v===null) || (v===undefined) ){
+		e=false;
+	} else if (! isEmpty(v.length) ){
+		e=true;
+	} else {
+		var c=0;
+		for (var x in v){c+=1;}
+		e=(c==0);
+	}
+	return e;
+}
+
+function isEmpty(o){
+	var t=typeof(o);
+	var e=true;
+	var v=o;
+	t=t.toLowerCase();
+	if (t=="string") v=o.trim();
+	if ((t=="number") || (t=="function")) {
+		e=false; 
+	} else if ((v===null) || (v===undefined) ){
+		e=true;
+	} else if (! isEmpty(v.length) ){
+		e=v.length==0;
+	} else {
+		var c=0;
+		for (var x in v){c+=1;}
+		e=(c==0);
+	}
+	return e;
+}
+
+
 var stats_class=function(array){
 	this.values = new Array();
 	array.forEach(
 		function(item){ 
+<<<<<<< HEAD
 			if (item && item!="" && ! isNaN(item)) { 
 				this.values.push(parseInt(item));
+=======
+			if (notEmpty(item) && ! isNaN(item)) { 
+				intArray.push(parseInt(item));
+>>>>>>> addMin
 			} else {
 				console.log("[" + item + "] is not a proper number");
 			}
@@ -52,6 +108,17 @@ stats_class.prototype.stdev=function(){
   			return undefined;
 }
 
+stats_class.prototype.min=function(){
+		var min ;
+  		this.values.forEach(function(v) {
+			  if (isEmpty(min)) {
+				  min=v
+			  } else {
+				 if (v<min) min=v; 
+			  }
+  		});
+		return min;
+}
 function doAdd(listAsString){
 	var stats=new stats_class( listAsString.split(","));
 	alert(stats.sum());
@@ -62,7 +129,13 @@ function doAvg(listAsString){
 	alert(stats.average());
 }
 
+<<<<<<< HEAD
 function doStDev(listAsString){
 	var stats=new stats_class( listAsString.split(","));
 	alert(stats.stdev());
+=======
+function doMin(listAsString){
+	var stats=new stats_class( listAsString.split(","));
+	alert(stats.min());
+>>>>>>> addMin
 }

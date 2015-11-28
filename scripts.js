@@ -90,6 +90,19 @@ stats_class.prototype.min=function(){
   		});
 		return min;
 }
+
+stats_class.prototype.max=function(){
+		var max ;
+  		this.values.forEach(function(v) {
+			  if (isEmpty(max)) {
+				  max=v
+			  } else {
+				 if (v>max) max=v; 
+			  }
+  		});
+		return max;
+}
+
 function doAdd(listAsString){
 	var stats=new stats_class( listAsString.split(","));
 	alert(stats.sum());
@@ -103,4 +116,9 @@ function doAvg(listAsString){
 function doMin(listAsString){
 	var stats=new stats_class( listAsString.split(","));
 	alert(stats.min());
+}
+
+function doMax(listAsString){
+	var stats=new stats_class( listAsString.split(","));
+	alert(stats.max());
 }

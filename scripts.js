@@ -28,12 +28,12 @@ stats_class.prototype.average=function(){
   			return "Can not calc avg";
 }
 
-function doAdd(){
-	var stats=new stats_class( $("#my-items").val().split(","));
+function doAdd(listAsString){
+	var stats=new stats_class( listAsString.split(","));
 	alert(stats.sum());
 }
 
-function doAvg(){
-	var stats=new stats_class( $("#my-items").val().split(","));
+function doAvg(listAsString){
+	var stats=new stats_class( listAsString.split(","));
 	alert(stats.average());
 }

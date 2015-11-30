@@ -49,7 +49,7 @@ function isEmpty(o){
 }
 
 
-var stats_class=function(array){
+var STATS_CLASS=function(array){
 	this.values = new Array();
 	array.forEach(
 		function(item){ 
@@ -61,7 +61,7 @@ var stats_class=function(array){
 		},this);
 }
 
-stats_class.prototype.sum=function(){
+STATS_CLASS.prototype.sum=function(){
 		var total = 0;
   		this.values.forEach(function(operand) {
     			total += operand;
@@ -70,7 +70,7 @@ stats_class.prototype.sum=function(){
 }
 
 
-stats_class.prototype.average=function(){
+STATS_CLASS.prototype.average=function(){
 		var count = this.values.length
 		if (count>0) 
 			return this.sum()/count
@@ -78,7 +78,7 @@ stats_class.prototype.average=function(){
   			return undefined;
 }
 
-stats_class.prototype.variance=function(){
+STATS_CLASS.prototype.variance=function(){
 		var totdiff=0
 		var mean=this.average();
 		var count = this.values.length
@@ -94,7 +94,7 @@ stats_class.prototype.variance=function(){
 }
 
 
-stats_class.prototype.stdev=function(){
+STATS_CLASS.prototype.stdev=function(){
 		var vrnc=this.variance()
 		if (typeof vrnc != "undefined") {
 			return Math.sqrt(vrnc)
@@ -103,7 +103,7 @@ stats_class.prototype.stdev=function(){
   			return undefined;
 }
 
-stats_class.prototype.min=function(){
+STATS_CLASS.prototype.min=function(){
 		var min ;
   		this.values.forEach(function(v) {
 			  if (isEmpty(min)) {
@@ -115,7 +115,7 @@ stats_class.prototype.min=function(){
 		return min;
 }
 
-stats_class.prototype.max=function(){
+STATS_CLASS.prototype.max=function(){
 		var max ;
   		this.values.forEach(function(v) {
 			  if (isEmpty(max)) {
@@ -127,32 +127,18 @@ stats_class.prototype.max=function(){
 		return max;
 }
 
-function doAdd(listAsString){
-	var stats=new stats_class( listAsString.split(","));
-	return stats.sum();
-}
-
-function doAvg(listAsString){
-	var stats=new stats_class( listAsString.split(","));
-	return stats.average();
-}
-
-function doVariance(listAsString){
-	var stats=new stats_class( listAsString.split(","));
-	return stats.variance();
-}
-
-function doStDev(listAsString){
-	var stats=new stats_class( listAsString.split(","));
-	return stats.stdev();
-}
-
-function doMin(listAsString){
-	var stats=new stats_class( listAsString.split(","));
-	return stats.min();
-}
-
-function doMax(listAsString){
-	var stats=new stats_class( listAsString.split(","));
-	return stats.max();
+function stats_do(action,listAsString){
+	var stats=new STATS_CLASS( listAsString.split(","));
+	switch (action.toLowerCase()) {
+		case "sum" : 
+		case "total" : 
+		case "add" : return stats.sum();
+		case "avg" : 
+		case "average" : return stats.average();
+		case "variance" : return stats.variance();
+		case "stdev": return stats.stdev();
+		case "min" : return stats.min();
+		case "max": return stats.max();
+		default: return "Error: [" + action + "] not implemented !"
+	} 
 }

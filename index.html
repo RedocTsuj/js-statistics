@@ -34,12 +34,12 @@
 
 		</div>
 		<div class="ui bottom attached segment">
-			<button onclick='showResult(doAdd($("#my-items").val()));' class="ui primary button">Add</button>
-			<button onclick='showResult(doAvg($("#my-items").val()));' class="ui primary button">Avg</button>
-			<button onclick='showResult(doVariance($("#my-items").val()));' class="ui primary button">Variance</button>
-			<button onclick='showResult(doStDev($("#my-items").val()));' class="ui primary button">StDev</button>
-			<button onclick='showResult(doMin($("#my-items").val()));' class="ui primary button">Min</button>
-			<button onclick='showResult(doMax($("#my-items").val()));' class="ui primary button">Max</button>
+			<button onclick='showResult(stats_do("Add",$("#my-items").val()));' class="ui primary button">Add</button>
+			<button onclick='showResult(stats_do("Avg",$("#my-items").val()));' class="ui primary button">Avg</button>
+			<button onclick='showResult(stats_do("Variance",$("#my-items").val()));' class="ui primary button">Variance</button>
+			<button onclick='showResult(stats_do("StDev",$("#my-items").val()));' class="ui primary button">StDev</button>
+			<button onclick='showResult(stats_do("Min",$("#my-items").val()));' class="ui primary button">Min</button>
+			<button onclick='showResult(stats_do("Max",$("#my-items").val()));' class="ui primary button">Max</button>
 			
 		</div>
 			<div class="ui attached segment">
